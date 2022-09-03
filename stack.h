@@ -1,0 +1,21 @@
+#include <string>
+
+const int SIZE = 200;
+
+
+typedef std::string Elem;
+
+class Stack{
+    private:
+        int stackTop;
+        Elem e[SIZE];
+    public:
+        Stack();
+        ~Stack();
+        bool isEmpty();
+        bool isFull();
+        void push(Elem e);
+        Elem pop();
+        Elem top();
+        int size();
+};
