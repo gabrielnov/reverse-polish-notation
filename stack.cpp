@@ -1,6 +1,8 @@
 #include <iostream>
 #include "stack.h"
 
+const std::string err = "-1";
+
 Stack::Stack(){
     this->stackTop = -1;
 }
@@ -31,7 +33,7 @@ void Stack::push(Elem e){
 Elem Stack::pop(){
     if (this->isEmpty()){
         std::cout << "stack underflow exception";
-        return "-1";
+        return err;
     }
 
     return this->e[this->stackTop--];
@@ -40,7 +42,7 @@ Elem Stack::pop(){
 Elem Stack::top(){
      if (this->isEmpty()){
         std::cout << "stack underflow exception";
-        return "-1";
+        return err;
     }
        return this->e[this->stackTop];
 }

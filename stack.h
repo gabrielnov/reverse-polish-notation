@@ -1,3 +1,5 @@
+#ifndef __STACK_H__
+#define __STACK_H__
 #include <string>
 
 const int SIZE = 200;
@@ -19,3 +21,5 @@ class Stack{
         Elem top();
         int size();
 };
+
+#endif

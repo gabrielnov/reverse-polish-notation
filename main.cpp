@@ -1,6 +1,11 @@
-#include "stack.h"
+#include "rpn.h"
+#include <string>
 
 int main(){
-    Stack stack;
+
+    std::string t = "(A+B)*C";
+
+    converter(t);
+
     return 0;
 }
