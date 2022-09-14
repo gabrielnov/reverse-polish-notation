@@ -3,7 +3,7 @@
 
 int main(){
 
-    std::string t = "(A+B)*C";
+    std::string t = "(A*(B+C)/D)";
 
     converter(t);
 
