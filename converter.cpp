@@ -1,5 +1,5 @@
 #include "stack.h"
-#include "rpn.h"
+#include "converter.h"
 #include <iostream>
 
 int priority(char c){
@@ -27,7 +27,7 @@ bool isOperator(char e){
     return false;
 }
 
-void converter(std::string e){
+void convert(std::string e){
 	std::cout << "infix expression is " << e << std::endl;
     Stack s;
     std::string output, op;
