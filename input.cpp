@@ -1,30 +1,32 @@
 #include "input.h"
 
 
-int readNumber(char c){
-	int number;
+std::string read(std::string c){
+	std::string digit;
 	
 	std::cout << "Type a number to replace character " << c << ": ";
 		
-	std::cin >> number;
+	std::cin >> digit;
 	
-	return number;
+	return digit;
 }
 
-NumericValue numericExpression(std::string expression){
-	std::string numeric;
-	struct NumericValue map;
-	int total = 0, input;
+NumericValues readDigits(std::string expression){
+	std::string numeric, input;
+	struct NumericValues map;
 	
 	for (int i = 0; i < expression.size(); i++){
 		
-		if (!isOperator(expression[i])){
+		std::string digit;
+    	digit.push_back(expression[i]);
+    	
+		if (isOperand(digit)){
 		
-			input = readNumber(expression[i]);
+			input = read(digit);
 			
-			map.values[total].letter = expression[i];
-			map.values[total].number = input;
-			total++;
+			map.values[map.total].letter = digit;
+			map.values[map.total].number = input;
+			map.total++;
 			
 		}
 	}

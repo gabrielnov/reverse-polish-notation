@@ -2,46 +2,49 @@
 #include "converter.h"
 
 
-int priority(char c){
-	if (c == '('){
+int priority(std::string c){
+	if (c == "("){
 		return 0;
 	}
-	if (c == '+' || c == '-'){
+	if (c == "+" || c == "-"){
 		return 1;
 	}	
-	if (c == '/' || c == '*'){
+	if (c == "/" || c == "*"){
 		return 2;
 	}
-	if (c == '^' ){
+	if (c == "^" ){
 		return 3;
 	}		
 }
 
-bool isOperator(char e){
-    char operatorsList[8] = {'+','-','*','/','^', '(', ')'};
+bool isOperand(std::string digit){
+    std::string operatorsList[8] = {"+","-","*","/","^", "(", ")"};
 
     for (int i = 0; i < 8; i++){
-        if (e == operatorsList[i]) return true;
+        if (digit == operatorsList[i]) return false;
     }
 
-    return false;
+    return true;
 }
 
-void convert(std::string e){
-	std::cout << "infix expression is " << e << std::endl;
+std::string convert(std::string expression){
+	std::cout << "infix expression is " << expression << std::endl;
     Stack s;
     std::string output, op;
     
     // A*(B+C)/D
     
-    for (int i = 0; i < e.size(); i++){
+    for (int i = 0; i < expression.size(); i++){
     	
-        if (!isOperator(e[i])){
-           output.push_back(e[i]);
+    	std::string digit;
+    	digit.push_back(expression[i]);
+    
+        if (isOperand(digit)){
+           output.append(digit);
            continue;
         }
         
-		if (e[i] == ')'){
+		if (digit == ")"){
             while (op != "("){
                 output.append(op);
                 op = s.pop();
@@ -51,16 +54,16 @@ void convert(std::string e){
         }
 		
 		std::string sc;
-        sc.push_back(e[i]);
+        sc.append(digit);
 				
-        if (e[i] == '(' || s.isEmpty() || priority(e[i]) > priority(s.top()[0])){
+        if (digit == "(" || s.isEmpty() || priority(digit) > priority(s.top())){
         	
            
             s.push(sc);
             continue;
         }
         
-        if (priority(e[i]) <= priority(s.top()[0])){
+        if (priority(digit) <= priority(s.top())){
            	output.append(s.pop());
            	s.push(sc);
         	continue;
@@ -72,6 +75,5 @@ void convert(std::string e){
 	}
 
     std::cout << "postfix expression is " << output << std::endl;
-
-    
+    return output;
 }

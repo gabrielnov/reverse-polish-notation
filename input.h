@@ -1,21 +1,22 @@
 #ifndef __INPUT_H__
-#define __INPUT_H_
+#define __INPUT_H__
 
 #include <string>
 #include "converter.h"
 #include <iostream>
 
 struct Values{
-	char letter;
-	int number;
+	std::string letter;
+	std::string number;
 };
 
-struct NumericValue{
+struct NumericValues{
 	struct Values values[20];
+	int total = 0;
 };
 
-int readNumber(char c);
-NumericValue numericExpression(std::string expression);
+std::string read(std::string c);
+NumericValues readDigits(std::string expression);
 
 
 #endif

@@ -1,21 +1,21 @@
 #include "converter.h"
 #include "input.h"
+#include "solver.h"
 #include <string>
 
 int main(){
 
-    std::string t = "(A*(B+C)/D)";
+    std::string infix = "(A+B)/(C-D)*E", postfix;
+    int result;
     
-    struct NumericValue newExpression;
+    struct NumericValues numericValues;
     
-	newExpression = numericExpression(t);
-	
-	for (int i = 0; i < 4; i++){
-		std::cout << "depois: " << newExpression.values[i].letter << "   " << newExpression.values[i].number << std::endl;
-	}
-	
-	
-    convert(t);
+	numericValues = readDigits(infix);
+
+    postfix = convert(infix);
+    
+    result = solve(postfix, &numericValues);
+    std::cout << "The final result is " << result << std::endl;
 
     return 0;
 }

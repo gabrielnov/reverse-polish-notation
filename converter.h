@@ -1,11 +1,11 @@
 #ifndef __CONVERTER_H__
-#define __CONVERTER_H_
+#define __CONVERTER_H__
 
 #include <string>
 #include <iostream>
 
-bool isOperator(char e);
-void convert(std::string e);
-int priority(char c);
+bool isOperand(std::string e);
+std::string convert(std::string expression);
+int priority(std::string c);
 
 #endif
