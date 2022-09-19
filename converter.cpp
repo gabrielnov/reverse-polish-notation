@@ -1,6 +1,6 @@
 #include "stack.h"
 #include "converter.h"
-#include <iostream>
+
 
 int priority(char c){
 	if (c == '('){

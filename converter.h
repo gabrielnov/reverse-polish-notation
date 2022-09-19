@@ -2,6 +2,7 @@
 #define __CONVERTER_H_
 
 #include <string>
+#include <iostream>
 
 bool isOperator(char e);
 void convert(std::string e);
