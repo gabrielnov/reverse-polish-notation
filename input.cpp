@@ -1,7 +1,19 @@
 #include "input.h"
 
+std::string readExpression(){
+	std::string expression;
+	std::cout << "Insert the infix expression: ";
+	std::cin >> expression;
+	
+	while (!validParentheses(expression)){
+		std::cout << "Invalid expression. Try again: " << std::endl;
+		std::cin >> expression;;
+	}
+	
+	return expression;
+}
 
-std::string read(std::string c){
+std::string digitToReplace(std::string c){
 	std::string digit;
 	
 	std::cout << "Type a number to replace character " << c << ": ";
@@ -22,7 +34,7 @@ NumericValues readDigits(std::string expression){
     	
 		if (isOperand(digit)){
 		
-			input = read(digit);
+			input = digitToReplace(digit);
 			
 			map.values[map.total].letter = digit;
 			map.values[map.total].number = input;
@@ -32,7 +44,33 @@ NumericValues readDigits(std::string expression){
 	}
 	
 	return map;
-	
-	
-
 }
+
+bool validParentheses(std::string expression){
+	Stack s;
+	std::string digit;
+	
+	for (int i = 0; i < expression.size(); i++){
+		digit = expression[i];
+		
+		if (digit == "("){
+			s.push(digit);
+		} 
+		
+		if (digit == ")"){
+			if (s.isEmpty())
+				return false;	
+			s.pop();
+		}
+	}
+	
+	if(s.isEmpty())
+		return true;
+	
+	return false;	
+}
+
+
+
+
+

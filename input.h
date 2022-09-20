@@ -4,6 +4,7 @@
 #include <string>
 #include "converter.h"
 #include <iostream>
+#include "stack.h"
 
 struct Values{
 	std::string letter;
@@ -15,8 +16,9 @@ struct NumericValues{
 	int total = 0;
 };
 
-std::string read(std::string c);
+std::string readExpression();
+std::string digitToReplace(std::string c);
 NumericValues readDigits(std::string expression);
-
+bool validParentheses(std::string expression);
 
 #endif

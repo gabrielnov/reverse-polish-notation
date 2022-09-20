@@ -28,11 +28,9 @@ bool isOperand(std::string digit){
 }
 
 std::string convert(std::string expression){
-	std::cout << "infix expression is " << expression << std::endl;
+	std::cout << "infix expression: " << expression;
     Stack s;
     std::string output, op;
-    
-    // A*(B+C)/D
     
     for (int i = 0; i < expression.size(); i++){
     	
@@ -74,6 +72,6 @@ std::string convert(std::string expression){
     	output.append(s.pop());
 	}
 
-    std::cout << "postfix expression is " << output << std::endl;
+    std::cout << " | postfix expression is " << output << std::endl;
     return output;
 }

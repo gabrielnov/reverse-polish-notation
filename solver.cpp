@@ -43,8 +43,7 @@ int solve(std::string expression, struct NumericValues *map){
 			
 			op = digit;
 			result = operation(number2, number1, op);
-			std::cout << "Resultado de " << number1 << " " << op << " " << number2 << " " << "=" << " " << result << std::endl;
-			
+		
 			s.push(std::to_string(result));			
 		}			
 	}
