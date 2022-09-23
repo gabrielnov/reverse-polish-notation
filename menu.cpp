@@ -27,8 +27,15 @@ void option(char opt){
 			showMenu();
 		case '4':
 			checkNull(postfix);
+			
+			if (numericValues.total == 0){
+				std::cout << "Error: You need to insert numeric values first" << std::endl;
+				showMenu();
+			}
+			
 			result = solve(postfix, &numericValues);
 			std::cout << "\nResult is " << result << std::endl;
+			
 			exit(0);
 		case '5':
 			exit(0);
