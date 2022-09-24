@@ -1,3 +1,6 @@
+//ALEX SE YOON KOO 32129319
+//GABRIEL NOVAES 31897282
+
 #include "solver.h"
 
 int operation(int number1, int number2, std::string op){
