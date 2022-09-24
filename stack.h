@@ -1,3 +1,6 @@
+//ALEX SE YOON KOO 32129319
+//GABRIEL NOVAES 31897282
+
 #ifndef __STACK_H__
 #define __STACK_H__
 #include <string>
