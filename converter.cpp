@@ -45,6 +45,7 @@ std::string convert(std::string expression){
            continue;
         }
         
+        // Ao encontrar um ), percorre-se a stack até encontrar um (
 		if (digit == ")"){
             while (op != "("){
                 output.append(op);
@@ -54,12 +55,13 @@ std::string convert(std::string expression){
             continue;
         }
 		
+		/* converte-se o char expression[i] para string
+		isso ocorre devido ao tipo da Stack (string) */
 		std::string sc;
         sc.append(digit);
+		
 				
         if (digit == "(" || s.isEmpty() || priority(digit) > priority(s.top())){
-        	
-           
             s.push(sc);
             continue;
         }

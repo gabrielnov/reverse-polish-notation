@@ -21,6 +21,7 @@ void option(char opt){
 			std::cout << "Expression saved." << std::endl;
 			showMenu();
 		case '2':
+			// aqui e no case 3 verifica se o usuario ja converteu a expressao posfixa
 			checkNull(infix);			
 			numericValues = readDigits(infix);
 			showMenu();
@@ -31,6 +32,7 @@ void option(char opt){
 		case '4':
 			checkNull(postfix);
 			
+			// verifica se o usuario ja inseriu os valores numericos
 			if (numericValues.total == 0){
 				std::cout << "Error: You need to insert numeric values first" << std::endl;
 				showMenu();
