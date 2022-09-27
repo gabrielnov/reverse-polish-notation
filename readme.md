@@ -18,3 +18,12 @@ Translates to an infix expression (RPN):
 
 > A B + C D - / E *
 
+
+Postfix expression (conventional):
+
+> A + B * C
+
+Translates to an infix expression (RPN):
+
+> A B C * +
+
